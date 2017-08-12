@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css" type="text/css" />
+	
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+
+	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<title>NPR News Article</title>
+
+	<style type="text/css">
+		
+		.nav navbar-nav {
+			height: 50px; 
+		}
+
+		.navbar-brand {
+			font-size: 30px;
+			color:#ffcb21  !important;
+			font-weight: bold;
+		}
+
+		#savedArticles {
+			margin-right: 10px;
+			margin-left: 20px !important;
+		}
+
+		#viewArticles {
+			margin-right: 10px;
+			margin-left: 20px !important;
+		}
+	</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <span class="navbar-brand">NPR News Scraper</span>
+		    </div>
+			<button id="viewArticles" class="btn btn-success navbar-btn">View Articles</button>
+		    <button id="scrapeArticles" class="btn btn-danger navbar-btn">Scrape News Articles</button>
+		    <button id="savedArticles" class="btn btn-primary navbar-btn">Saved  Articles</button>
+		  </div>
+		</nav>
+		{{{ body }}}
+
+
+		  <script src="/js/app.js"></script>
+	</body>
+</html>
