@@ -8,7 +8,8 @@ var path = require("path");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-var port = 3000;
+// Set up our port to be either the host's designated port, or 3000
+var PORT = process.env.PORT || 3000;
 // Initialize Express
 var app = express();
 
@@ -25,18 +26,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
 
-// Database configuration with mongoose
-mongoose.connect("mongodb://localhost/scraping-mongoose");
-var db = mongoose.connection;
 
-// Show any mongoose errors
-db.on("error", function(error) {
-  console.log("Mongoose Error: ", error);
-});
-
-// Once logged in to the db through mongoose, log a success message
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var db = process.env.MONGODB_URI || "mongodb://localhost/scraping-mongoose";
+// Connect mongoose to our database
+mongoose.connect(db, function(error) {
+  // Log any errors connecting with mongoose
+  if (error) {
+    console.log(error);
+  }
+  // Or log a success message
+  else {
+    console.log("mongoose connection is successful");
+  }
 });
 
 // Set Handlebars.
@@ -50,7 +52,7 @@ var routes = require("./controllers/newsController.js");
 
 app.use("/", routes);
 
-// Listen on Port 3000
-app.listen(3000, function() {
-  console.log("App running on port 3000!");
+// Listen on the port
+app.listen(PORT, function() {
+  console.log("Listening on port:" + PORT);
 });
