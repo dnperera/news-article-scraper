@@ -1,0 +1,38 @@
+<div class="container">
+   <div class="row">
+     <div id="articles" class="col-sm-8">
+     {{#if newsHeadlines}}
+	        {{#each newsHeadlines}}
+				<div class='panel panel-default articlePanel'>
+				    <div class='panel-heading'>{{this.title}}</div>
+				    <div class='panel-body'><div class='row'><div class='col-sm-6'>
+				    <img class='img-thumbnail img-responsive' src='{{this.link}}'></div>
+				    <div class='col-sm-6'>{{this.teaser}}
+					    <p></p>
+					 	<p><button type='button' 
+					 	data-id='{{this._id}}'class='btn btn-danger deleteArticle'>Delete</button></p>
+				    </div>
+				    </div></div>
+				</div>
+			 {{/each}}
+		{{else}}
+			<div class='panel panel-primary'>
+				<div class='panel-heading'> No New News Articles Available</div>
+				<div class='panel-body'> Please click "Scrape Articles !"</div>
+			</div>
+		{{/if}}
+     </div>
+     <div id="notes" class="col-sm-4"></div>
+   </div>
+</div>     
+
+
+
+
+
+
+
+
+
+
+

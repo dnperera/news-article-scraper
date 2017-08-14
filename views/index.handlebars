@@ -3,14 +3,20 @@
         <div id="articles" class="col-sm-8">
         {{#if newsHeadlines}}
 	        {{#each newsHeadlines}}
-				<div class='panel panel-default'>
+				<div class='panel panel-default articlePanel'>
 				    <div class='panel-heading'>{{this.title}}</div>
 				    <div class='panel-body'><div class='row'><div class='col-sm-6'>
 				    <img class='img-thumbnail img-responsive' src='{{this.link}}'></div>
 				    <div class='col-sm-6'>{{this.teaser}}
 				    <p></p>
-				    <p><button type='button' 
-				    data-id='{{this._id}}'class='btn btn-success'>Save</button></p>
+				    {{#if this.saved}}
+				    	<p><button type='button' 
+				    	data-id='{{this._id}}'class='btn btn-danger saveArticle'disabled >Article Saved</button></p>
+
+					 {{else}}
+					 	<p><button type='button' 
+					 	data-id='{{this._id}}'class='btn btn-success saveArticle'>Save</button></p>
+					 {{/if}}
 				    </div>
 				    </div></div>
 				</div>
@@ -22,6 +28,22 @@
 			</div>
 		{{/if}}
         </div>
-        <div id="notes" class="col-sm-4"></div>
+        <div id="notes" class="col-sm-4">
+				<!--div class='panel panel-info'>
+					<div class='panel-heading'>Add Your Note</div>
+					<div class='panel-body'>
+						<div class="row">
+							<div  class="col-sm-10">
+								<input type="hidden" id="articleID" value="noteid" name="articleID">
+								<textarea class='form-control' name='note' id="newNote">
+	                			</textarea></div>
+							<div  class="col-sm-2">
+							</div>
+						</div>
+						<div class='row'>
+						<button type='button' id='saveSelectedNote' class='btn btn-success center-block'>Save</button></div>
+				  	</div>
+				</div-->
+        </div>
       </div>
 </div>

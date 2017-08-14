@@ -1,5 +1,7 @@
 // Dependencies
 var express = require("express");
+var request = require("request");
+
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var path = require("path");
